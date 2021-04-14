@@ -6,6 +6,7 @@ const User = require('../../models/User')
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
+require('dotenv').config()
 
 // @route GET api/auth
 // @desc Test route
@@ -61,7 +62,8 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        process.env.JWT_SECRET,
+        // config.get('jwtSecret'),
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
