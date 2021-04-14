@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  isOperator: {
+    type: Boolean,
+    required: true
+  },
   avatar: {
     type: String
   },

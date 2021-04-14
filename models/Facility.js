@@ -52,6 +52,11 @@ const FacilitySchema = new Schema ({
     required: true
   },
 
+  imageURL: {
+    type: String,
+    required: true
+  },
+
   comments: [
     {
       user: {

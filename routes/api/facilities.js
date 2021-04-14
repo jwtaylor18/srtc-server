@@ -25,7 +25,8 @@ router.post('/', auth, async (req, res) => {
       streetAddress: req.body.streetAddress,
       city: req.body.city,
       state: req.body.state,
-      zipCode: req.body.zipCode
+      zipCode: req.body.zipCode,
+      imageURL: req.body.imageURL
     })
 
     const facility = await newFacility.save()
@@ -41,7 +42,7 @@ router.post('/', auth, async (req, res) => {
 // @route GET api/facilities
 // @desc Get all facilities
 // @access Public
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
     //Gets the facilities, sort by date with most recent first
     const facilities = await Facility.find().sort({date: -1})

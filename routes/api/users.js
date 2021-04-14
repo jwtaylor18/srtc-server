@@ -26,7 +26,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, password, isOperator } = req.body;
 
     try {
       let user = await User.findOne({ email });
@@ -38,20 +38,11 @@ router.post(
           .json({ errors: [{ msg: 'User already exists' }] });
       }
 
-      const avatar = normalize(
-        gravatar.url(email, {
-          s: '200',
-          r: 'pg',
-          d: 'mm'
-        }),
-        { forceHttps: true }
-      );
-
       user = new User({
         name,
         email,
-        avatar,
-        password
+        password,
+        isOperator
       });
 
       const salt = await bcrypt.genSalt(10);
