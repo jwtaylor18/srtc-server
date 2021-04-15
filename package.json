@@ -4,7 +4,7 @@
   "description": "Tennis app for enthusiasts",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server.js",
     "server": "nodemon server"
   },
   "author": "jwt",
