@@ -1,10 +1,10 @@
 const express = require('express');
-// var cors = require('cors');
+var cors = require('cors');
 const connectDB = require('./config/db')
 
 const app = express();
 
-// app.use(cors())
+app.use(cors())
 
 
 // Connect Database
