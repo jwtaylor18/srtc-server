@@ -76,6 +76,16 @@ const FacilitySchema = new Schema ({
   date: {
     type: Date,
     default: Date.now
+  },
+
+  latitude: {
+    type: Number,
+    default: 42.34269223912957
+  },
+
+  longitude: {
+    type: Number,
+    default: -71.03346364098043
   }
 })
 
