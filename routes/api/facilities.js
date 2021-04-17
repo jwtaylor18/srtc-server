@@ -160,4 +160,24 @@ router.delete('/:facility_id/comment/:comment_id', auth, async(req, res) => {
   }
 })
 
+
+// @route GET api/facilities/count/new
+// @desc Returns the number of newly created facilities within the last 30 days
+// @access Public
+router.get('/count/new', async(req, res) =>{
+  try {
+
+    today = new Date()
+    temp = new Date().setDate(today.getDate()-30)
+    cutoff = new Date(temp)
+
+    const numNewFacilities = await Facility.countDocuments({date: {$gte:cutoff}})
+
+    res.json(numNewFacilities)
+  } catch (err) {
+
+    res.status(500).send("server error in getting count new facilities")
+  }
+})
+
 module.exports = router
