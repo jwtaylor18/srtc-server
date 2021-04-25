@@ -54,7 +54,7 @@ const FacilitySchema = new Schema ({
 
   imageURL: {
     type: String,
-    required: true
+    default: "https://images.unsplash.com/photo-1547934045-2942d193cb49?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVubmlzJTIwY291cnR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
   },
 
   comments: [
